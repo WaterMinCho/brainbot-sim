@@ -12,18 +12,18 @@
 파이썬은 Node와 달리 가상환경을 직접 만들고 켜야 한다. 여기서 헷갈리면 이후 단계의 오류 절반이 환경 문제가 된다.
 
 ## 1. Git 사용자 정보
-설정되어 있는지 확인한다.
+이 저장소에는 커밋 작성자 정보가 저장소 단위로 설정되어 있다. 확인한다.
 ```bash
-git config --global user.name
-```
-아무것도 나오지 않으면 설정한다.
-```bash
-git config --global user.name "이름"
+git config user.name
 ```
 ```bash
-git config --global user.email "GitHub에 등록한 이메일"
+git config user.email
 ```
-공개 저장소에 개인 이메일을 남기고 싶지 않으면 GitHub의 noreply 주소를 쓴다 (GitHub → Settings → Emails).
+공개 저장소라 이메일은 GitHub의 noreply 주소를 쓴다 (GitHub → Settings → Emails). 바꾸려면 `--global` 없이 설정한다.
+```bash
+git config user.email "쓰고 싶은 주소"
+```
+`--global`을 붙이면 이 PC의 모든 저장소에 적용되고, 붙이지 않으면 이 저장소에만 적용된다. npm의 전역 설치와 프로젝트 설치의 차이와 같다.
 
 ## 2. 가상환경 만들기
 프로젝트 폴더에서 실행한다.
@@ -68,26 +68,20 @@ ruff check .
 `All checks passed!`가 나와야 한다.
 
 ## 6. 저장소
-이 저장소는 공개로 만든다. `.mentor/` 폴더에는 개인 기록이 들어 있고 `.gitignore`가 이 폴더를 제외한다.
-기록은 PC에만 남으므로 따로 백업한다.
+저장소는 이미 초기화되어 있고 첫 커밋(뼈대)과 원격 주소가 들어 있다. 상태를 확인한다.
+```bash
+git log --oneline
+```
+```bash
+git remote -v
+```
+```bash
+git ls-files
+```
+마지막 명령은 git이 추적하는 파일 목록이다. `.venv`나 `.mentor`가 보이면 안 된다.
+`.mentor/` 폴더에는 개인 기록이 들어 있고 `.gitignore`가 이 폴더를 제외한다. 기록은 PC에만 남으므로 따로 백업한다.
 
-```bash
-git init -b main
-```
-```bash
-git add .
-```
-```bash
-git status
-```
-올라갈 파일 목록을 눈으로 확인한다. `.venv`나 `.mentor`가 보이면 안 된다.
-```bash
-git commit -m "chore: project skeleton"
-```
-GitHub에서 빈 공개 저장소를 만든다. README나 .gitignore를 추가하는 옵션은 끈다.
-```bash
-git remote add origin https://github.com/<계정>/brainbot-sim.git
-```
+GitHub에 원격 저장소가 아직 없으면 빈 공개 저장소를 만든다. README나 .gitignore를 추가하는 옵션은 끈다. 그리고 올린다.
 ```bash
 git push -u origin main
 ```
