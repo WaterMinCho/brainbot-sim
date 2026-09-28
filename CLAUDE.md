@@ -24,6 +24,7 @@ Claude가 구현을 대신 써 주면 프로젝트의 목적이 사라진다. �
 |---|---|---|
 | `.mentor/03-feedback-log.md` | 세션별 피드백 (최신이 위) | 아니오 |
 | `.mentor/04-ai-usage-evaluation.md` | AI 활용능력 루브릭, 점수 추이, 근거 | 아니오 |
+| `.mentor/07-ops-notes.md` | 작업 환경 메모. 도구를 쓰기 전에 읽는다 | 아니오 |
 | `.mentor/career/` | 커리어 관련 문서 | 아니오 |
 | `.mentor/diagnostics/` | 단계별 진단 답안 | 아니오 |
 | `docs/roadmap.md` | 마일스톤 설계, 결정 기록, 백로그 | 예 |
