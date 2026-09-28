@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "brainbot-sim"
+version = "0.0.1"
+description = "사용자 파이썬 브레인 코드로 2D 로봇을 구동하는 GUI 시뮬레이터 (학습 프로젝트)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+gui = ["pygame-ce>=2.5"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/brainbot"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = ["bonus: 선택 과제. 필수 수용 기준에는 들어가지 않는다"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+extend-exclude = [".mentor"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["brainbot"]

@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Editor / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# 개인 멘토링 기록 (프로필, 평가, 피드백)
+# 공개 저장소라면 이 줄을 유지한다.
+# 비공개 저장소에서 기기 간 동기화가 필요하면 이 줄을 지운다.
+.mentor/
+
+# Claude Code 개인 설정
+.claude/settings.local.json
+CLAUDE.local.md
